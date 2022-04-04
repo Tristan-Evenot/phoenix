@@ -13,13 +13,25 @@
             <div class="profileProjectList">
                 <div class="lastProjects">
                     <h2>Derniers projets</h2>
-                    <table>
+                    <table style="width:100%;">
+                    <tr>
+                        <th>
+                            Nom :
+                        </th>
+                        <th>
+                            Statut :
+                        </th>
+                    </tr>
                         {% for project in projects %}
                             {% if project.projectTeam == app.user.team %}
+                            <a href="{{ path('projet_vue', { id: project.id }) }}">
                             <tr>
-                                <td>{{ project.name }}</td>
-                                <td>{{ project.status.name }}</td>
+                            <a href="{{ path('projet_vue', { id: project.id }) }}">
+                                <td colspan="1">{{ project.name }}</td>
+                                </a>
+                                <td colspan="1">{{ project.status.name }}</td>
                             </tr>
+                            </a>
                             {% endif %}
                         {% endfor %}
                     </table>
