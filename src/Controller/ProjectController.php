@@ -20,7 +20,7 @@ class ProjectController extends AbstractController {
     }
     #[Route('/{id}', name: 'projet_vue', methods: ['GET'])]
     public function vue_projet(Project $project): Response {
-        return $this->render('project/show.html.twig', [
+        return $this->render('project/projet_vue.html.twig', [
             'project' => $project,
         ]);
     }

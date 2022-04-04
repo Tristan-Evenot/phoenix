@@ -1,9 +1,10 @@
-extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Projets{% endblock %}
 
 {% block body %}
     <div>
-        <h1>{{project.name}}</h1>
+        <h1 style="text-align: center; padding-top:50px;">{{project.name}}</h1>
+        {# <p>statut : {{project.status}}</p> #}
     </div>
 {% endblock %}
