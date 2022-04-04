@@ -9,10 +9,20 @@
     {% if app.user %}
 
         <div class="profile">
-            <h1>Bienvenue ! {% user.name %}</h1>
+            <h1>Bienvenue !</h1>
             <div class="profileProjectList">
                 <div class="lastProjects">
                     <h2>Derniers projets</h2>
+                    <table>
+                        {% for project in projects %}
+                            {% if project.projectTeam == app.user.team %}
+                            <tr>
+                                <td>{{ project.name }}</td>
+                                <td>{{ project.status.name }}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
                 </div>
                 <div class="lastTeamProjects">
                     <h2>Derniers projets de l'équipe</h2>

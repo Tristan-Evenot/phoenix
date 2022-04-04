@@ -25,18 +25,11 @@
             <td>{{ project.name }}</td>
             <td>{{ project.status.name }}</td>
             <td>{{ project.projectTeam }}</td>
-            <td>{{ project.customerTeam }}</td>
+            <td>{{ project.clientTeam }}</td>
             <td>
                 {{ project.startedAt ? project.startedAt|date('d-m-Y') : '' }}
             </td>
             <td>{{ project.endedAt ? project.endedAt|date('d-m-Y') : '' }}</td>
-            <td>
-                <a href="{{ path('project_show', { id: project.id }) }}">
-                    <i class="fa-solid fa-eye m-1"></i></a
-                ><a href="{{ path('project_edit', { id: project.id }) }}"
-                    ><i class="fa-solid fa-pen-to-square m-1"></i>
-                </a>
-            </td>
         </tr>
         {% else %}
         <tr>

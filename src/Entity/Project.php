@@ -194,25 +194,21 @@ class Project {
         return $this;
     }
 
-    public function getProjectTeam(): ?Team
-    {
+    public function getProjectTeam(): ?Team {
         return $this->projectTeam;
     }
 
-    public function setProjectTeam(?Team $projectTeam): self
-    {
+    public function setProjectTeam(?Team $projectTeam): self {
         $this->projectTeam = $projectTeam;
 
         return $this;
     }
 
-    public function getClientTeam(): ?Team
-    {
+    public function getClientTeam(): ?Team {
         return $this->clientTeam;
     }
 
-    public function setClientTeam(?Team $clientTeam): self
-    {
+    public function setClientTeam(?Team $clientTeam): self {
         $this->clientTeam = $clientTeam;
 
         return $this;
