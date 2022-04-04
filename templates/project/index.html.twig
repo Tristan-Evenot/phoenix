@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projets{% endblock %}
+
+{% block body %}
+<div>
+</div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Nom</th>
+            <th>Statut</th>
+            <th>Équipe projet</th>
+            <th>Équipe client</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for project in projects %}
+        <tr>
+            <th>{{ project.id }}</th>
+            <td>{{ project.name }}</td>
+            <td>{{ project.status.name }}</td>
+            <td>{{ project.projectTeam }}</td>
+            <td>{{ project.customerTeam }}</td>
+            <td>
+                {{ project.startedAt ? project.startedAt|date('d-m-Y') : '' }}
+            </td>
+            <td>{{ project.endedAt ? project.endedAt|date('d-m-Y') : '' }}</td>
+            <td>
+                <a href="{{ path('project_show', { id: project.id }) }}">
+                    <i class="fa-solid fa-eye m-1"></i></a
+                ><a href="{{ path('project_edit', { id: project.id }) }}"
+                    ><i class="fa-solid fa-pen-to-square m-1"></i>
+                </a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="12">Aucun projet trouvé</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

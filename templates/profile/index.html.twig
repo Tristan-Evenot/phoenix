@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    {% if not app.user %}
+        <a href="/login">Connectez vous</a>
+    {% endif %}
+    {% if app.user %}
+
+        <div class="profile">
+            <h1>Bienvenue ! {% user.name %}</h1>
+            <div class="profileProjectList">
+                <div class="lastProjects">
+                    <h2>Derniers projets</h2>
+                </div>
+                <div class="lastTeamProjects">
+                    <h2>Derniers projets de l'équipe</h2>
+                </div>
+                <div class="riskyProjects">
+                    <h2>Projets à risque</h2>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
