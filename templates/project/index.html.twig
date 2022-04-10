@@ -27,9 +27,9 @@
             <td>{{ project.projectTeam.name }}</td>
             <td>{{ project.clientTeam }}</td>
             <td>
-                {{ project.startedAt ? project.startedAt|date('d-m-Y') : '' }}
+                {{ project.startedAt ? project.startedAt|date('d/m/Y') : '' }}
             </td>
-            <td>{{ project.endedAt ? project.endedAt|date('d-m-Y') : '' }}</td>
+            <td>{{ project.endedAt ? project.endedAt|date('d/m/Y') : '' }}</td>
             <td><a href="{{ path('projet_vue', { id: project.id }) }}">voir</a></td>
         </tr>
         {% else %}
