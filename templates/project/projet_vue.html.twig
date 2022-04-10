@@ -7,10 +7,13 @@
         <h1 style="text-align: center; padding-top:50px;">{{project.name}}</h1>
         <div>
             <p style="padding-top:100px;"><b>Statut :</b> {{ project.status.name }}</p>
+            <p><b>Description :</b> {{ project.description }}</p>
             <p><b>Équipe de développement :</b> {{ project.projectTeam.name }}</p>
             <p><b>Client :</b> {{ project.clientTeam }}</p>
             <p><b>Commencé le :</b> {{ project.startedAt ? project.startedAt|date('d/m/Y') : '' }}</p>
             <p><b>Fini le :</b> {{ project.endedAt ? project.endedAt|date('d/m/Y') : '' }}</p>
+            <p><b>Portfolio :</b> {{ project.portfolio }}</p>
+            <p><b>Budget :</b> {{ project.budget }}</p>
         </div>
     </div>
 {% endblock %}
