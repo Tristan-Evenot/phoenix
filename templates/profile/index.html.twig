@@ -22,19 +22,18 @@
                             Statut :
                         </th>
                         <th>
-                            Voir
+                            Accéder
                         </th>
                     </tr>
                         {% for project in projects %}
                             {% if project.projectTeam == app.user.team %}
-                            <a href="{{ path('projet_vue', { id: project.id }) }}">
                             <tr>
-                            <a href="{{ path('projet_vue', { id: project.id }) }}">
                                 <td colspan="1">{{ project.name }}</td>
-                                </a>
                                 <td colspan="1">{{ project.status.name }}</td>
+                                <td>
+                                    <a href="{{ path('projet_vue', { id: project.id }) }}">voir</a>
+                                </td>
                             </tr>
-                            </a>
                             {% endif %}
                         {% endfor %}
                     </table>
