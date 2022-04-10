@@ -11,7 +11,7 @@ use Doctrine\Persistence\ObjectManager;
 class HighlightsFixtures extends Fixture implements DependentFixtureInterface {
     public function getDependencies() {
         return [
-            JalonFixtures::class
+            JalonFixtures::class,
         ];
     }
     public function load(ObjectManager $manager): void {
