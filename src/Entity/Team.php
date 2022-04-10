@@ -8,8 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TeamRepository::class)]
-class Team
-{
+class Team {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -21,7 +20,7 @@ class Team
     #[ORM\Column(type: 'string', length: 255)]
     private $manager;
 
-    #[ORM\OneToMany(mappedBy: 'team', targetEntity: user::class)]
+    #[ORM\OneToMany(mappedBy: 'team', targetEntity: User::class)]
     private $members;
 
     #[ORM\OneToMany(mappedBy: 'parentTeam', targetEntity: Team::class)]
@@ -30,52 +29,44 @@ class Team
     #[ORM\OneToMany(mappedBy: 'projectTeam', targetEntity: Project::class)]
     private $projects;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->members = new ArrayCollection();
         $this->teams = new ArrayCollection();
         $this->projects = new ArrayCollection();
     }
 
-    public function getId(): ?int
-    {
+    public function getId(): ?int {
         return $this->id;
     }
 
-    public function getName(): ?string
-    {
+    public function getName(): ?string {
         return $this->name;
     }
 
-    public function setName(string $name): self
-    {
+    public function setName(string $name): self {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getManager(): ?string
-    {
+    public function getManager(): ?string {
         return $this->manager;
     }
 
-    public function setManager(string $manager): self
-    {
+    public function setManager(string $manager): self {
         $this->manager = $manager;
 
         return $this;
     }
 
     /**
-     * @return Collection|user[]
+     * @return Collection|User[]
      */
-    public function getMembers(): Collection
-    {
+    public function getMembers(): Collection {
         return $this->members;
     }
 
-    public function addMember(user $member): self
-    {
+    public function addMember(User $member): self {
         if (!$this->members->contains($member)) {
             $this->members[] = $member;
             $member->setTeam($this);
@@ -84,8 +75,7 @@ class Team
         return $this;
     }
 
-    public function removeMember(user $member): self
-    {
+    public function removeMember(User $member): self {
         if ($this->members->removeElement($member)) {
             // set the owning side to null (unless already changed)
             if ($member->getTeam() === $this) {
@@ -99,13 +89,11 @@ class Team
     /**
      * @return Collection|Team[]
      */
-    public function getTeams(): Collection
-    {
+    public function getTeams(): Collection {
         return $this->teams;
     }
 
-    public function addTeam(Team $team): self
-    {
+    public function addTeam(Team $team): self {
         if (!$this->teams->contains($team)) {
             $this->teams[] = $team;
             $team->setParentTeam($this);
@@ -114,8 +102,7 @@ class Team
         return $this;
     }
 
-    public function removeTeam(Team $team): self
-    {
+    public function removeTeam(Team $team): self {
         if ($this->teams->removeElement($team)) {
             // set the owning side to null (unless already changed)
             if ($team->getParentTeam() === $this) {
@@ -129,13 +116,11 @@ class Team
     /**
      * @return Collection|Project[]
      */
-    public function getProjects(): Collection
-    {
+    public function getProjects(): Collection {
         return $this->projects;
     }
 
-    public function addProject(Project $project): self
-    {
+    public function addProject(Project $project): self {
         if (!$this->projects->contains($project)) {
             $this->projects[] = $project;
             $project->setProjectTeam($this);
@@ -144,8 +129,7 @@ class Team
         return $this;
     }
 
-    public function removeProject(Project $project): self
-    {
+    public function removeProject(Project $project): self {
         if ($this->projects->removeElement($project)) {
             // set the owning side to null (unless already changed)
             if ($project->getProjectTeam() === $this) {
